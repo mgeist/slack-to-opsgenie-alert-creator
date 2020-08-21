@@ -3,7 +3,7 @@ service: slack-to-opsgenie-alert-creator
 provider:
   name: aws
 #  region: us-west-2
-  runtime: nodejs4.3
+  runtime: nodejs12.x
   memorySize: 256
   timeout: 10
   stage: dev

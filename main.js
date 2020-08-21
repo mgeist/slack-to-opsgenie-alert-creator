@@ -25,8 +25,13 @@ exports.handler = function (event, context, callback) {
         'api_key': opsgenieApiKey
     });
 
+    const match = params.text.match(/Urgency: (P[\d])/)
+    const priority = match.length ? match[1] : 'P3'
+
     var create_alert_json = {
-        message: params.text
+        message: params.text,
+        priority: priority,
+        description: params.text,
     };
 
     opsgenie.alertV2.create(create_alert_json, function (error, alert) {
